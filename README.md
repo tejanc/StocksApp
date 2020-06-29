@@ -26,4 +26,4 @@ The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
 ### Dependencies
-npm install react-scripts
+### 'npm install react-scripts'
