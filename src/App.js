@@ -9,7 +9,6 @@ const defaultContextData = {
     toggleL: () => { }
 };
 
-
 function App() {
   return (
     <div className="App">
