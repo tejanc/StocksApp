@@ -1,3 +1,5 @@
+'use strict';
+
 import React from 'react';
 import { Component } from 'react'
 import Plot from 'react-plotly.js';
@@ -42,24 +44,29 @@ class Stock extends React.Component {
     this.state = {
       stockChartXValues: [],
       stockChartYValues: [],
-      stockSymbol: 'AMZN'
+      stockSymbol: 'AMZN',
+      API: ''
     }
     this.stockSymbolRef = React.createRef()
+    // this.APIRef = React.createRef()
   }
 
   componentDidMount() {
     this.fetchStock(this.state.stockSymbol);
   }
 
-  fetchStock(StockSymbol) {
+  async fetchStock(StockSymbol) {
     const pointerToThis = this;
     console.log(pointerToThis);
     const API_KEY = 'HGJWFG4N8AQ66ICD';
-    let API_Call = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${StockSymbol}&outputsize=compact&apikey=${API_KEY}`;
+    let API_Call = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${this.state.stockSymbol}&outputsize=compact&apikey=${API_KEY}`;
+    this.setState({
+      API: API_Call
+    })
     let stockChartXValuesFunction = [];
     let stockChartYValuesFunction = [];
 
-    fetch(API_Call)
+    await fetch(API_Call)
       .then(
         function (response) {
           return response.json();
@@ -82,6 +89,7 @@ class Stock extends React.Component {
 
         }
       )
+      this.render()
   }
 
   handleInputChange = async (event) => {
@@ -91,12 +99,15 @@ class Stock extends React.Component {
     })
 
     this.fetchStock(this.state.stockSymbol);
-    this.render();
   }
+
+
+
 
   render() {
 
     const { stockSymbol } = this.state;
+    const { API } = this.state;
 
     return (
       <div>
@@ -110,6 +121,7 @@ class Stock extends React.Component {
         <h1>Stock Market</h1>
 
         <p>Current Stock: {stockSymbol}</p>
+        <p>Current API: {API}</p>
 
         <Plot
           data={[
