@@ -49,8 +49,8 @@ class Stock extends React.Component {
           for (var key in data['Time Series (Daily)']) {
             stockChartXValuesFunction.push(key);
             stockChartOpenValuesFunction.push(data['Time Series (Daily)'][key]['1. open']);
-            stockChartLowValuesFunction.push(data['Time Series (Daily)'][key]['3. low']);
             stockChartHighValuesFunction.push(data['Time Series (Daily)'][key]['2. high']);
+            stockChartLowValuesFunction.push(data['Time Series (Daily)'][key]['3. low']);
           }
 
           console.log(stockChartXValuesFunction);
@@ -106,9 +106,35 @@ class Stock extends React.Component {
             {
               title: 'Opening Prices', 
               width: 1080,
-              height: 720 
+              height: 720,
+              xaxis: {
+                autorange: true,
+                rangeselector: {buttons: [
+                    {
+                      count: 1,
+                      label: '1m',
+                      step: 'month',
+                      stepmode: 'backward'
+                    },
+                    {
+                      count: 3,
+                      label: '3m',
+                      step: 'month',
+                      stepmode: 'backward'
+                    },
+                    {
+                      count: 6,
+                      label: '6m',
+                      step: 'month',
+                      stepmode: 'backward'
+                    },
+                    {step: 'all'}
+                  ]},
+                rangeslider: {range: []},
+                type: 'date'
             }
           }
+        }
         />
 
         <Plot
@@ -125,7 +151,33 @@ class Stock extends React.Component {
             {
               title: 'Stock Highs', 
               width: 1080,
-              height: 720 
+              height: 720,
+              xaxis: {
+                autorange: true,
+                rangeselector: {buttons: [
+                    {
+                      count: 1,
+                      label: '1m',
+                      step: 'month',
+                      stepmode: 'backward'
+                    },
+                    {
+                      count: 3,
+                      label: '3m',
+                      step: 'month',
+                      stepmode: 'backward'
+                    },
+                    {
+                      count: 6,
+                      label: '6m',
+                      step: 'month',
+                      stepmode: 'backward'
+                    },
+                    {step: 'all'}
+                  ]},
+                rangeslider: {range: []},
+                type: 'date'
+            }
             }
           }
         />
@@ -144,7 +196,33 @@ class Stock extends React.Component {
             {
               title: 'Stock Lows', 
               width: 1080,
-              height: 720 
+              height: 720,
+              xaxis: {
+                autorange: true,
+                rangeselector: {buttons: [
+                    {
+                      count: 1,
+                      label: '1m',
+                      step: 'month',
+                      stepmode: 'backward'
+                    },
+                    {
+                      count: 3,
+                      label: '3m',
+                      step: 'month',
+                      stepmode: 'backward'
+                    },
+                    {
+                      count: 6,
+                      label: '6m',
+                      step: 'month',
+                      stepmode: 'backward'
+                    },
+                    {step: 'all'}
+                  ]},
+                rangeslider: {range: []},
+                type: 'date'
+            }
             }
           }
         />
