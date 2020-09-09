@@ -6,7 +6,7 @@ import theme from "./theme.js";
 
 const defaultContextData = {
     dark: false,
-    toggleL: () => { }
+    toggle: () => { }
 };
 
 function App() {
