@@ -95,134 +95,34 @@ class Stock extends React.Component {
         <Plot
           data={[
             {
+              name: this.state.stockSymbol + ' Open',
               x: this.state.stockChartXValues,
               y: this.state.stockChartOpenValues,
               type: 'scatter',
               mode: 'lines',
-              marker: { color: '#5e5353' },
-            }
-          ]}
-          layout={
+              marker: { color: '#5e5351' },
+            },
             {
-              title: 'Opening Prices',
-              width: 1080,
-              height: 720,
-              xaxis: {
-                autorange: true,
-                rangeselector: {
-                  buttons: [
-                    {
-                      count: 1,
-                      label: '1m',
-                      step: 'month',
-                      stepmode: 'backward'
-                    },
-                    {
-                      count: 3,
-                      label: '3m',
-                      step: 'month',
-                      stepmode: 'backward'
-                    },
-                    {
-                      count: 6,
-                      label: '6m',
-                      step: 'month',
-                      stepmode: 'backward'
-                    },
-                    {
-                      count: 1,
-                      label: '1y',
-                      step: 'year',
-                      stepmode: 'backward'
-                    },
-                    {
-                      count: 5,
-                      label: '5y',
-                      step: 'year',
-                      stepmode: 'backward'
-                    },
-                    { step: 'all' }
-                  ]
-                },
-                rangeslider: { range: [] },
-                type: 'date'
-              }
-            }
-          }
-        />
-
-        <Plot
-          data={[
-            {
+              name: this.state.stockSymbol + ' High',
               x: this.state.stockChartXValues,
               y: this.state.stockChartHighValues,
               type: 'scatter',
               mode: 'lines',
               marker: { color: '#6eabbf' },
-            }
-          ]}
-          layout={
+            },
             {
-              title: 'Stock Highs',
-              width: 1080,
-              height: 720,
-              xaxis: {
-                autorange: true,
-                rangeselector: {
-                  buttons: [
-                    {
-                      count: 1,
-                      label: '1m',
-                      step: 'month',
-                      stepmode: 'backward'
-                    },
-                    {
-                      count: 3,
-                      label: '3m',
-                      step: 'month',
-                      stepmode: 'backward'
-                    },
-                    {
-                      count: 6,
-                      label: '6m',
-                      step: 'month',
-                      stepmode: 'backward'
-                    },
-                    {
-                      count: 1,
-                      label: '1y',
-                      step: 'year',
-                      stepmode: 'backward'
-                    },
-                    {
-                      count: 5,
-                      label: '5y',
-                      step: 'year',
-                      stepmode: 'backward'
-                    },
-                    { step: 'all' }
-                  ]
-                },
-                rangeslider: { range: [] },
-                type: 'date'
-              }
-            }
-          }
-        />
-
-        <Plot
-          data={[
-            {
+              name: this.state.stockSymbol + ' Low',
               x: this.state.stockChartXValues,
               y: this.state.stockChartLowValues,
               type: 'scatter',
               mode: 'lines',
               marker: { color: '#f00a31' },
             }
+            
           ]}
           layout={
             {
-              title: 'Stock Lows',
+              title: 'Prices',
               width: 1080,
               height: 720,
               xaxis: {
