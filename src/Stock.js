@@ -49,11 +49,12 @@ class Stock extends React.Component {
           for (var key in data['Time Series (Daily)']) {
             stockChartXValuesFunction.push(key);
             stockChartOpenValuesFunction.push(data['Time Series (Daily)'][key]['1. open']);
-            stockChartLowValuesFunction.push(data['Time Series (Daily)'][key]['2. low']);
-            stockChartHighValuesFunction.push(data['Time Series (Daily)'][key]['3. high']);
+            stockChartLowValuesFunction.push(data['Time Series (Daily)'][key]['3. low']);
+            stockChartHighValuesFunction.push(data['Time Series (Daily)'][key]['2. high']);
           }
 
           console.log(stockChartXValuesFunction);
+          
           pointerToThis.setState({
             stockChartXValues: stockChartXValuesFunction,
             stockChartOpenValues: stockChartOpenValuesFunction,
@@ -98,7 +99,7 @@ class Stock extends React.Component {
               y: this.state.stockChartOpenValues,
               type: 'scatter',
               mode: 'lines',
-              marker: { color: 'dark-blue' },
+              marker: { color: '#5e5353' },
             }
           ]}
           layout={
@@ -117,7 +118,7 @@ class Stock extends React.Component {
               y: this.state.stockChartHighValues,
               type: 'scatter',
               mode: 'lines',
-              marker: { color: 'dark-blue' },
+              marker: { color: '#6eabbf' },
             }
           ]}
           layout={
@@ -136,7 +137,7 @@ class Stock extends React.Component {
               y: this.state.stockChartLowValues,
               type: 'scatter',
               mode: 'lines',
-              marker: { color: 'dark-blue' },
+              marker: { color: '#f00a31' },
             }
           ]}
           layout={
