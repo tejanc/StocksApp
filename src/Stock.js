@@ -1,41 +1,8 @@
 'use strict';
 
 import React from 'react';
-import { Component } from 'react'
 import Plot from 'react-plotly.js';
-
-class NavBarInput extends Component {
-
-  constructor(props) {
-    super(props)
-    this.textInput = null
-    this.setTextInputRef = element => {
-      this.textInput = element
-    }
-    this.focusTextInput = () => {
-      if (this.textInput) this.textInput.focus()
-    }
-  }
-
-  handleChange = (event) => {
-    if (this.props.onChange) this.props.onChange(event)
-  }
-  componentDidMount() {
-    this.focusTextInput()
-  }
-
-  render() {
-    return (
-      <div class="topnav">
-        <a class="active" href="#home">Home</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
-        <p><textarea placeholder='Stocks (e.g. AMZN)' name={this.props.inputContentName} onChange={this.handleChange}></textarea></p>
-      </div>
-    )
-  }
-}
+import NavBarInput from './NavBarInput.js';
 
 class Stock extends React.Component {
 
@@ -43,12 +10,13 @@ class Stock extends React.Component {
     super(props);
     this.state = {
       stockChartXValues: [],
-      stockChartYValues: [],
+      stockChartOpenValues: [],
+      stockChartLowValues: [],
+      stockChartHighValues: [],
       stockSymbol: 'AMZN',
       API: ''
     }
-    this.stockSymbolRef = React.createRef()
-    // this.APIRef = React.createRef()
+    this.stockSymbolRef = React.createRef();
   }
 
   componentDidMount() {
@@ -64,7 +32,9 @@ class Stock extends React.Component {
       API: API_Call
     })
     let stockChartXValuesFunction = [];
-    let stockChartYValuesFunction = [];
+    let stockChartOpenValuesFunction = [];
+    let stockChartLowValuesFunction = [];
+    let stockChartHighValuesFunction = [];
 
     await fetch(API_Call)
       .then(
@@ -78,13 +48,17 @@ class Stock extends React.Component {
 
           for (var key in data['Time Series (Daily)']) {
             stockChartXValuesFunction.push(key);
-            stockChartYValuesFunction.push(data['Time Series (Daily)'][key]['1. open']);
+            stockChartOpenValuesFunction.push(data['Time Series (Daily)'][key]['1. open']);
+            stockChartLowValuesFunction.push(data['Time Series (Daily)'][key]['2. low']);
+            stockChartHighValuesFunction.push(data['Time Series (Daily)'][key]['3. high']);
           }
 
           console.log(stockChartXValuesFunction);
           pointerToThis.setState({
             stockChartXValues: stockChartXValuesFunction,
-            stockChartYValues: stockChartYValuesFunction
+            stockChartOpenValues: stockChartOpenValuesFunction,
+            stockChartLowValues: stockChartLowValuesFunction,
+            stockChartHighValues: stockChartHighValuesFunction
           })
 
         }
@@ -97,12 +71,8 @@ class Stock extends React.Component {
     this.setState({
       stockSymbol: event.target.value
     })
-
     this.fetchStock(this.state.stockSymbol);
   }
-
-
-
 
   render() {
 
@@ -118,23 +88,66 @@ class Stock extends React.Component {
           inputContentName='myContent'
         />
 
-        <h1>Stock Market</h1>
-
-        <p>Current Stock: {stockSymbol}</p>
-        <p>Current API: {API}</p>
+        <h1>Stock Symbol: {stockSymbol} </h1>
+        {/* <p>Current API: {API}</p> */}
 
         <Plot
           data={[
             {
               x: this.state.stockChartXValues,
-              y: this.state.stockChartYValues,
+              y: this.state.stockChartOpenValues,
               type: 'scatter',
-              mode: 'lines+markers',
+              mode: 'lines',
               marker: { color: 'dark-blue' },
             }
           ]}
-          layout={{ width: 1080, height: 720, title: 'Stock Opening Prices' }}
+          layout={
+            {
+              title: 'Opening Prices', 
+              width: 1080,
+              height: 720 
+            }
+          }
         />
+
+        <Plot
+          data={[
+            {
+              x: this.state.stockChartXValues,
+              y: this.state.stockChartHighValues,
+              type: 'scatter',
+              mode: 'lines',
+              marker: { color: 'dark-blue' },
+            }
+          ]}
+          layout={
+            {
+              title: 'Stock Highs', 
+              width: 1080,
+              height: 720 
+            }
+          }
+        />
+
+        <Plot
+          data={[
+            {
+              x: this.state.stockChartXValues,
+              y: this.state.stockChartLowValues,
+              type: 'scatter',
+              mode: 'lines',
+              marker: { color: 'dark-blue' },
+            }
+          ]}
+          layout={
+            {
+              title: 'Stock Lows', 
+              width: 1080,
+              height: 720 
+            }
+          }
+        />
+
       </div>
     )
   }
