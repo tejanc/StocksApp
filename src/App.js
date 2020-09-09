@@ -5,8 +5,8 @@ import { ThemeProvider as EmotionThemeProvider } from 'emotion-theming';
 import theme from "./theme.js";
 
 const defaultContextData = {
-    dark: false,
-    toggle: () => { }
+  dark: false,
+  toggle: () => { }
 };
 
 function App() {

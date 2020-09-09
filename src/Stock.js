@@ -54,7 +54,7 @@ class Stock extends React.Component {
           }
 
           console.log(stockChartXValuesFunction);
-          
+
           pointerToThis.setState({
             stockChartXValues: stockChartXValuesFunction,
             stockChartOpenValues: stockChartOpenValuesFunction,
@@ -64,7 +64,7 @@ class Stock extends React.Component {
 
         }
       )
-      this.render()
+    this.render()
   }
 
   handleInputChange = async (event) => {
@@ -104,12 +104,13 @@ class Stock extends React.Component {
           ]}
           layout={
             {
-              title: 'Opening Prices', 
+              title: 'Opening Prices',
               width: 1080,
               height: 720,
               xaxis: {
                 autorange: true,
-                rangeselector: {buttons: [
+                rangeselector: {
+                  buttons: [
                     {
                       count: 1,
                       label: '1m',
@@ -128,13 +129,26 @@ class Stock extends React.Component {
                       step: 'month',
                       stepmode: 'backward'
                     },
-                    {step: 'all'}
-                  ]},
-                rangeslider: {range: []},
+                    {
+                      count: 1,
+                      label: '1y',
+                      step: 'year',
+                      stepmode: 'backward'
+                    },
+                    {
+                      count: 5,
+                      label: '5y',
+                      step: 'year',
+                      stepmode: 'backward'
+                    },
+                    { step: 'all' }
+                  ]
+                },
+                rangeslider: { range: [] },
                 type: 'date'
+              }
             }
           }
-        }
         />
 
         <Plot
@@ -149,12 +163,13 @@ class Stock extends React.Component {
           ]}
           layout={
             {
-              title: 'Stock Highs', 
+              title: 'Stock Highs',
               width: 1080,
               height: 720,
               xaxis: {
                 autorange: true,
-                rangeselector: {buttons: [
+                rangeselector: {
+                  buttons: [
                     {
                       count: 1,
                       label: '1m',
@@ -173,11 +188,24 @@ class Stock extends React.Component {
                       step: 'month',
                       stepmode: 'backward'
                     },
-                    {step: 'all'}
-                  ]},
-                rangeslider: {range: []},
+                    {
+                      count: 1,
+                      label: '1y',
+                      step: 'year',
+                      stepmode: 'backward'
+                    },
+                    {
+                      count: 5,
+                      label: '5y',
+                      step: 'year',
+                      stepmode: 'backward'
+                    },
+                    { step: 'all' }
+                  ]
+                },
+                rangeslider: { range: [] },
                 type: 'date'
-            }
+              }
             }
           }
         />
@@ -194,12 +222,13 @@ class Stock extends React.Component {
           ]}
           layout={
             {
-              title: 'Stock Lows', 
+              title: 'Stock Lows',
               width: 1080,
               height: 720,
               xaxis: {
                 autorange: true,
-                rangeselector: {buttons: [
+                rangeselector: {
+                  buttons: [
                     {
                       count: 1,
                       label: '1m',
@@ -218,11 +247,24 @@ class Stock extends React.Component {
                       step: 'month',
                       stepmode: 'backward'
                     },
-                    {step: 'all'}
-                  ]},
-                rangeslider: {range: []},
+                    {
+                      count: 1,
+                      label: '1y',
+                      step: 'year',
+                      stepmode: 'backward'
+                    },
+                    {
+                      count: 5,
+                      label: '5y',
+                      step: 'year',
+                      stepmode: 'backward'
+                    },
+                    { step: 'all' }
+                  ]
+                },
+                rangeslider: { range: [] },
                 type: 'date'
-            }
+              }
             }
           }
         />
