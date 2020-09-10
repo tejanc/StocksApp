@@ -64,13 +64,12 @@ class Stock extends React.Component {
 
         }
       )
-    this.render()
+    this.render();
   }
 
   handleInputChange = async (event) => {
-    event.preventDefault()
     this.setState({
-      stockSymbol: event.target.value
+        stockSymbol: event.target.value
     })
     this.fetchStock(this.state.stockSymbol);
   }
@@ -100,7 +99,7 @@ class Stock extends React.Component {
               y: this.state.stockChartOpenValues,
               type: 'scatter',
               mode: 'lines',
-              marker: { color: '#5e5351' },
+              marker: { color: '#7F7F7F' },
             },
             {
               name: this.state.stockSymbol + ' High',
@@ -118,7 +117,6 @@ class Stock extends React.Component {
               mode: 'lines',
               marker: { color: '#f00a31' },
             }
-            
           ]}
           layout={
             {

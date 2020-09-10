@@ -15,7 +15,7 @@ class NavBarInput extends Component {
     }
 
     handleChange = (event) => {
-        if (this.props.onChange) this.props.onChange(event)
+        this.props.onChange(event)
     }
     componentDidMount() {
         this.focusTextInput()
@@ -28,7 +28,7 @@ class NavBarInput extends Component {
                 <a href="#news">News</a>
                 <a href="#contact">Contact</a>
                 <a href="#about">About</a>
-                <p><textarea placeholder='Stock Symbol (e.g. AMZN)' name={this.props.inputContentName} onChange={this.handleChange}></textarea></p>
+                <p><textarea placeholder='Stock Symbol (e.g. AMZN)' name={this.props.inputContentName} onKeyUp={this.handleChange}></textarea></p>
             </div>
         )
     }
