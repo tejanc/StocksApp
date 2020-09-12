@@ -25,13 +25,16 @@ class NavBarInput extends Component {
     render() {
         return (
             <div class="topnav">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
                 <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
                 <a href="#"><i class="fa fa-fw fa-pencil"></i> News</a>
                 <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
                 <a href="#"><i class="fa fa-fw fa-book"></i> About</a>
                 <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
-                <p><textarea placeholder='Stock Symbol (e.g. AMZN)' name={this.props.inputContentName} onKeyUp={this.handleChange}></textarea></p>  
+                <div class="search-container">
+                    <input type="text" placeholder='Stock Symbol (e.g. AMZN)' name={this.props.inputContentName} onKeyUp={this.handleChange}></input>
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </div>
             </div>
         )
     }

@@ -23,9 +23,25 @@ class Stock extends React.Component {
     this.fetchStock(this.state.stockSymbol);
   }
 
+  async Search(Keyword) {
+    let API_KEY = '2XV1NPZO5YB5S320';
+    let SEARCH_API = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${this.state.keyword}&apikey=${API_KEY}`;
+    await fetch(SEARCH_API)
+      .then(
+        function (response) {
+          return response.json();
+        }
+      )
+      .then(
+        function (data) {
+          for (var key in data['bestMatches']) {
+
+          }
+        })
+  }
+
   async fetchStock(StockSymbol) {
     const pointerToThis = this;
-    console.log(pointerToThis);
     const API_KEY = 'HGJWFG4N8AQ66ICD';
     let API_Call = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${this.state.stockSymbol}&outputsize=full&apikey=${API_KEY}`;
     this.setState({
@@ -44,8 +60,6 @@ class Stock extends React.Component {
       )
       .then(
         function (data) {
-          console.log(data);
-
 
           for (var key in data['Time Series (Daily)']) {
             stockChartXValuesFunction.push(key);
@@ -70,7 +84,7 @@ class Stock extends React.Component {
 
   handleInputChange = async (event) => {
     this.setState({
-        stockSymbol: event.target.value
+      stockSymbol: event.target.value
     })
     this.fetchStock(this.state.stockSymbol);
   }
