@@ -14,6 +14,7 @@ class Stock extends React.Component {
       stockChartLowValues: [],
       stockChartHighValues: [],
       stockSymbol: 'AMZN',
+      keyword: '',
       API: ''
     }
     this.stockSymbolRef = React.createRef();
@@ -23,9 +24,13 @@ class Stock extends React.Component {
     this.fetchStock(this.state.stockSymbol);
   }
 
-  async Search(Keyword) {
-    let API_KEY = '2XV1NPZO5YB5S320';
+  async fetchSearch(Keyword) {
+    const pointerToThis = this;
+    const API_KEY = '2XV1NPZO5YB5S320';
     let SEARCH_API = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${this.state.keyword}&apikey=${API_KEY}`;
+    this.setState({
+      keyword: Keyword
+    })
     await fetch(SEARCH_API)
       .then(
         function (response) {
@@ -84,9 +89,11 @@ class Stock extends React.Component {
 
   handleInputChange = async (event) => {
     this.setState({
-      stockSymbol: event.target.value
+      stockSymbol: event.target.value,
+      keyword: event.target.value
     })
     this.fetchStock(this.state.stockSymbol);
+    this.fetchSearch(this.state.keyword);
   }
 
   render() {
