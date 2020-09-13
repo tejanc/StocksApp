@@ -3,6 +3,27 @@
 import React from 'react';
 import Plot from 'react-plotly.js';
 import NavBarInput from './NavBarInput.js';
+import AsyncSelect from 'react-select/async';
+
+const dot = (color = '#ccc') => ({
+  alignItems: 'center',
+  display: 'flex',
+
+  ':before': {
+    backgroundColor: color,
+    borderRadius: 10,
+    content: '" "',
+    display: 'block',
+    marginRight: 8,
+    height: 10,
+    width: 10,
+  },
+});
+
+const colorStyles = {
+  input: styles => ({ ...styles, ...dot() }),
+  placeholder: styles => ({ ...styles, ...dot() }),
+}
 
 class Stock extends React.Component {
 
@@ -14,23 +35,35 @@ class Stock extends React.Component {
       stockChartLowValues: [],
       stockChartHighValues: [],
       stockSymbol: 'AMZN',
-      keyword: '',
       API: ''
     }
     this.stockSymbolRef = React.createRef();
+    this.stockNameRef = React.createRef();
   }
 
   componentDidMount() {
+    // this.fetchStock(this.state.stockSymbol);
+  }
+
+  onChange = async (selectedStockSymbol) => {
+    this.setState({
+      stockSymbol: selectedStockSymbol.value
+    })
     this.fetchStock(this.state.stockSymbol);
   }
 
-  async fetchSearch(Keyword) {
-    const pointerToThis = this;
+  loadOptions = async (inputText, callBack) => {
     const API_KEY = '2XV1NPZO5YB5S320';
-    let SEARCH_API = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${this.state.keyword}&apikey=${API_KEY}`;
+    let SEARCH_API = `https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=${inputText}&apikey=${API_KEY}`;
     this.setState({
-      keyword: Keyword
+      API: SEARCH_API
     })
+    /*
+     * Use the following url to view the output of the response
+     * https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=ACN&apikey=2XV1NPZO5YB5S320
+     */
+    let arr = [];
+
     await fetch(SEARCH_API)
       .then(
         function (response) {
@@ -40,9 +73,16 @@ class Stock extends React.Component {
       .then(
         function (data) {
           for (var key in data['bestMatches']) {
-
+            let name = data['bestMatches'][key]['2. name'];
+            let symbol = data['bestMatches'][key]['1. symbol'];
+            arr.push({
+              label: '(' + symbol + ') ' + name,
+              value: symbol
+            })
           }
-        })
+        }
+      )
+    callBack(arr);
   }
 
   async fetchStock(StockSymbol) {
@@ -52,6 +92,11 @@ class Stock extends React.Component {
     this.setState({
       API: API_Call
     })
+    /*
+     * Use the following url to view the output of the response
+     * https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=AAPL&outputsize=compact&apikey=HGJWFG4N8AQ66ICD
+     */
+
     let stockChartXValuesFunction = [];
     let stockChartOpenValuesFunction = [];
     let stockChartLowValuesFunction = [];
@@ -89,17 +134,15 @@ class Stock extends React.Component {
 
   handleInputChange = async (event) => {
     this.setState({
-      stockSymbol: event.target.value,
-      keyword: event.target.value
+      stockSymbol: event.target.value
     })
     this.fetchStock(this.state.stockSymbol);
-    this.fetchSearch(this.state.keyword);
   }
 
   render() {
 
-    const { stockSymbol } = this.state;
-    const { API } = this.state;
+    let { stockSymbol } = this.state;
+    let { API } = this.state;
 
     return (
       <div>
@@ -112,6 +155,25 @@ class Stock extends React.Component {
 
         <h1>Stock Symbol: {stockSymbol} </h1>
         {/* <p>Current API: {API}</p> */}
+
+        <AsyncSelect
+          cacheOptions={[]}
+          onChange={this.onChange}
+          value={this.state.stockSymbol}
+          placeholder={'Stock Symbol (e.g. AMZN)'}
+          width='200px'
+          theme={theme => ({
+            ...theme,
+            borderRadius: 2,
+            colors: {
+              ...theme.colors,
+              primary25: 'lightblue',
+              primary: 'black',
+            },
+          })}
+          styles={colorStyles}
+          loadOptions={this.loadOptions}
+        />
 
         <Plot
           data={[
