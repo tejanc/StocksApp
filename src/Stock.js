@@ -48,11 +48,10 @@ class Stock extends React.Component {
       stockChartOpenValues: [],
       stockChartLowValues: [],
       stockChartHighValues: [],
-      stockSymbol: 'AMZN',
+      stockSymbol: '',
       API: ''
     }
     this.stockSymbolRef = React.createRef();
-    this.stockNameRef = React.createRef();
   }
 
   componentDidMount() {
@@ -62,8 +61,8 @@ class Stock extends React.Component {
   onChange = async (selectedStockSymbol) => {
     this.setState({
       stockSymbol: selectedStockSymbol.value
-    })
-    this.fetchStock(this.state.stockSymbol);
+    }, () => this.fetchStock(this.state.stockSymbol));
+    
   }
 
   loadOptions = async (inputText, callBack) => {
@@ -99,7 +98,7 @@ class Stock extends React.Component {
     callBack(arr);
   }
 
-  async fetchStock(StockSymbol) {
+  fetchStock = async (StockSymbol) => {
     const pointerToThis = this;
     const API_KEY = 'HGJWFG4N8AQ66ICD';
     let API_Call = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${this.state.stockSymbol}&outputsize=full&apikey=${API_KEY}`;
@@ -173,7 +172,7 @@ class Stock extends React.Component {
         />
 
         <h1>Stock Symbol: {stockSymbol} </h1>
-        {/* <p>Current API: {API}</p> */}
+        <p>Current API: {API}</p>
 
         <AsyncSelect
           cacheOptions
