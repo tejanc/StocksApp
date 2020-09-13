@@ -20,9 +20,21 @@ const dot = (color = '#ccc') => ({
   },
 });
 
-const colorStyles = {
+const styles = {
   input: styles => ({ ...styles, ...dot() }),
   placeholder: styles => ({ ...styles, ...dot() }),
+  control: styles => ({
+    ...styles,
+    width: '500px'
+  }),
+  option: styles => ({
+    ...styles,
+    width: '500px',
+  }),
+  menu: styles => ({
+    ...styles,
+    width: '500px',
+  })
 }
 
 class Stock extends React.Component {
@@ -157,7 +169,8 @@ class Stock extends React.Component {
         {/* <p>Current API: {API}</p> */}
 
         <AsyncSelect
-          cacheOptions={[]}
+          cacheOptions
+          maxMenuHeight={200}
           onChange={this.onChange}
           value={this.state.stockSymbol}
           placeholder={'Stock Symbol (e.g. AMZN)'}
@@ -171,7 +184,7 @@ class Stock extends React.Component {
               primary: 'black',
             },
           })}
-          styles={colorStyles}
+          styles={styles}
           loadOptions={this.loadOptions}
         />
 
