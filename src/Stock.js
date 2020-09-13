@@ -25,15 +25,17 @@ const styles = {
   placeholder: styles => ({ ...styles, ...dot() }),
   control: styles => ({
     ...styles,
-    width: '500px'
+    width: '50%',
+    margin: '0 auto'
   }),
   option: styles => ({
     ...styles,
-    width: '500px',
+    // borderBottom: '1px dotted black',
+    margin: '0 auto'
   }),
   menu: styles => ({
     ...styles,
-    width: '500px',
+    margin: '0 auto'
   })
 }
 
@@ -151,6 +153,11 @@ class Stock extends React.Component {
     this.fetchStock(this.state.stockSymbol);
   }
 
+  resizeHandler = () => {
+    this.child.resizeHandler();
+    window.dispatchEvent(new Event('resize'));
+  }
+
   render() {
 
     let { stockSymbol } = this.state;
@@ -174,7 +181,6 @@ class Stock extends React.Component {
           onChange={this.onChange}
           value={this.state.stockSymbol}
           placeholder={'Stock Symbol (e.g. AMZN)'}
-          width='200px'
           theme={theme => ({
             ...theme,
             borderRadius: 2,
@@ -189,6 +195,7 @@ class Stock extends React.Component {
         />
 
         <Plot
+          useResizeHandler
           data={[
             {
               name: this.state.stockSymbol + ' Open',
@@ -220,6 +227,7 @@ class Stock extends React.Component {
               title: 'Prices',
               width: 1080,
               height: 720,
+              autosize: true,
               xaxis: {
                 autorange: true,
                 rangeselector: {
