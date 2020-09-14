@@ -1,35 +1,99 @@
 import React from 'react';
 
+var article = {
+    author: "",
+    title: "",
+    description: "",
+    url: "",
+    urlToImage: "",
+    publishedAt: "",
+    content: "",
+    length: 0
+}
+
+const customStyle = {
+    margin: 10,
+    height: 200,
+    width: 280,
+}
+
 class Card extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            date: '',
-            heading: '',
-            paragraph: ''
+            api: '',
+            arr: []
         }
     }
 
     componentDidMount() {
-        this.setState({date: "4 days ago"})
-        this.setState({heading: "Post One"})
-        this.setState({paragraph:"It was going to rain. The weather forecast didn't say that, but the steel plate in his hip did. He had learned over the years to trust his hip over the weatherman. It was going to rain, so he better get outside and prepare."})
+        this.fetchNews('Amazon');
     }
 
+    componentDidUpdate() {
+        // document.getElementById("card-image").style.background = "url(" + this.state.arr[2].urlToImage;
+    }
+
+    fetchNews = async (query) => {
+
+        const pointerToThis = this;
+
+        let url = 'http://newsapi.org/v2/everything?' +
+            `q=${query}&` +
+            `from=${Date.now()}}&` +
+            'sortBy=popularity&' +
+            'apiKey=9c0a6f3604e64d3eb2c3d50d20dd0770';
+        //http://newsapi.org/v2/everything?q=Amazon&from=2020-09-02&sortBy=popularity&apiKey=9c0a6f3604e64d3eb2c3d50d20dd0770
+
+        this.setState({
+            api: url
+        })
+
+        var articles = [];
+
+        let req = new Request(url);
+        await fetch(req)
+            .then(
+                function (response) {
+                    // console.log(response.json());
+                    return response.json();
+                }
+            )
+            .then(
+                function (data) {
+                    for (var key in data['articles']) {
+                        article = new Object;
+                        article.author = data['articles'][key]['author'];
+                        article.title = data['articles'][key]['title'];
+                        article.description = data['articles'][key]['description'];
+                        article.url = data['articles'][key]['url'];
+                        article.urlToImage = data['articles'][key]['urlToImage'];
+                        article.publishedAt = data['articles'][key]['publishedAt'];
+                        article.content = data['articles'][key]['content'];
+
+                        articles.push(article);
+                    }
+                    pointerToThis.setState({
+                        arr: articles
+                    })
+                }
+            )
+    }
 
     render() {
-
-        const { date, heading, paragraph } = this.state;
-
+        const { api, arr, length } = this.state;
         return (
             <div class="card-body">
+                {/* <h2>{"API: " + api}</h2> */}
                 <div class="card">
-                    <div class="card-image"></div>
+                    <div class="card-image">
+                        <img src={arr[0] === undefined ? '' : arr[0].urlToImage} style={customStyle} onclick={arr[0] === undefined ? '' : arr[0].url}></img>
+                    </div>
                     <div class="card-text">
-                        <span class="date">{date}</span>
-                        <h2>{heading}</h2>
-                        <p>{paragraph}</p>
+                        <span class="date">{arr[0] === undefined ? '' : arr[0].publishedAt}</span>
+                        <h2>{arr[0] === undefined ? '' : arr[0].title}</h2>
+                        <p>{arr[0] === undefined ? '' : arr[0].description}</p>
                     </div>
                     <div class="card-stats">
                         <div class="stat">
@@ -47,11 +111,85 @@ class Card extends React.Component {
                     </div>
                 </div >
                 <div class="card">
-                    <div class="card-image"></div>
+                    <div class="card-image">
+                        <img src={arr[1] === undefined ? '' : arr[1].urlToImage} style={customStyle}></img>
+                    </div>
                     <div class="card-text">
-                        <span class="date">{date}</span>
-                        <h2>{heading}</h2>
-                        <p>{paragraph}</p>
+                        <span class="date">{arr[1] === undefined ? '' : arr[1].publishedAt}</span>
+                        <h2>{arr[1] === undefined ? '' : arr[1].title}</h2>
+                        <p>{arr[1] === undefined ? '' : arr[1].description}</p>
+                    </div>
+                    <div class="card-stats">
+                        <div class="stat">
+                            <div class="value">4<sup>m</sup></div>
+                            <div class="type">read</div>
+                        </div>
+                        <div class="stat border">
+                            <div class="value">1243</div>
+                            <div class="type">views</div>
+                        </div>
+                        <div class="stat">
+                            <div class="value">77</div>
+                            <div class="type">comments</div>
+                        </div>
+                    </div>
+                </div >
+                <div class="card">
+                    <div class="card-image">
+                        <img src={arr[2] === undefined ? '' : arr[2].urlToImage} style={customStyle}></img>
+                    </div>
+                    <div class="card-text">
+                        <span class="date">{arr[2] === undefined ? '' : arr[2].publishedAt}</span>
+                        <h2>{arr[2] === undefined ? '' : arr[2].title}</h2>
+                        <p>{arr[2] === undefined ? '' : arr[2].description}</p>
+                    </div>
+                    <div class="card-stats">
+                        <div class="stat">
+                            <div class="value">4<sup>m</sup></div>
+                            <div class="type">read</div>
+                        </div>
+                        <div class="stat border">
+                            <div class="value">1243</div>
+                            <div class="type">views</div>
+                        </div>
+                        <div class="stat">
+                            <div class="value">77</div>
+                            <div class="type">comments</div>
+                        </div>
+                    </div>
+                </div >
+                <div class="card">
+                    <div class="card-image">
+                        <img src={arr[3] === undefined ? '' : arr[3].urlToImage} style={customStyle}></img>
+                    </div>
+                    <div class="card-text">
+                        <span class="date">{arr[3] === undefined ? '' : arr[3].publishedAt}</span>
+                        <h2>{arr[3] === undefined ? '' : arr[3].title}</h2>
+                        <p>{arr[3] === undefined ? '' : arr[3].description}</p>
+                    </div>
+                    <div class="card-stats">
+                        <div class="stat">
+                            <div class="value">4<sup>m</sup></div>
+                            <div class="type">read</div>
+                        </div>
+                        <div class="stat border">
+                            <div class="value">1243</div>
+                            <div class="type">views</div>
+                        </div>
+                        <div class="stat">
+                            <div class="value">77</div>
+                            <div class="type">comments</div>
+                        </div>
+                    </div>
+                </div >
+                <div class="card">
+                    <div class="card-image">
+                        <img src={arr[4] === undefined ? '' : arr[4].urlToImage} style={customStyle}></img>
+                    </div>
+                    <div class="card-text">
+                        <span class="date">{arr[4] === undefined ? '' : arr[4].publishedAt}</span>
+                        <h2>{arr[4] === undefined ? '' : arr[4].title}</h2>
+                        <p>{arr[4] === undefined ? '' : arr[4].description}</p>
                     </div>
                     <div class="card-stats">
                         <div class="stat">

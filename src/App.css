@@ -89,11 +89,11 @@
 }
 
 .card-body {
-  width: 100vw;
+  width: 1000vw;
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   overflow: hidden;
   background: url("background.jpg");
 }
@@ -115,7 +115,7 @@
 
 .card-image {
   grid-area: image;
-  background: url("img1.jpg");
+  /* background: url(); */
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   background-size: cover;

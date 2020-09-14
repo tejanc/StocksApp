@@ -32,7 +32,7 @@ class NavBarInput extends Component {
                 <a href="#"><i class="fa fa-fw fa-book"></i> About</a>
                 <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
                 <div class="search-container">
-                    <input type="text" placeholder='Stock Symbol (e.g. AMZN)' name={this.props.inputContentName} onKeyUp={this.handleChange}></input>
+                    <input type="text" placeholder='Search..' name={this.props.inputContentName} onKeyUp={this.handleChange}></input>
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </div>
             </div>

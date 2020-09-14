@@ -151,7 +151,7 @@ class Stock extends React.Component {
     })
     this.fetchStock(this.state.stockSymbol);
   }
-
+  
   render() {
 
     const { stockSymbol, API } = this.state;
