@@ -152,15 +152,9 @@ class Stock extends React.Component {
     this.fetchStock(this.state.stockSymbol);
   }
 
-  resizeHandler = () => {
-    this.child.resizeHandler();
-    window.dispatchEvent(new Event('resize'));
-  }
-
   render() {
 
-    let { stockSymbol } = this.state;
-    let { API } = this.state;
+    const { stockSymbol, API } = this.state;
 
     return (
       <div>
@@ -172,7 +166,7 @@ class Stock extends React.Component {
         />
 
         <h1>Stock Symbol: {stockSymbol} </h1>
-        <p>Current API: {API}</p>
+        {/* <p>Current API: {API}</p> */}
 
         <AsyncSelect
           cacheOptions
