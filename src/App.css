@@ -88,14 +88,20 @@
   }
 }
 
+.news-title .h1{
+  color: grey;
+  font-weight: bold;
+  font-size: 32;
+}
+
 .card-body {
-  width: 1000vw;
-  height: 100vh;
+  width: 110vw;
+  height: 70vh;
   display: flex;
   align-items: center;
   justify-content: left;
   overflow: hidden;
-  background: url("background.jpg");
+  background: url('background.jpg') scroll left center;
 }
 
 .card {

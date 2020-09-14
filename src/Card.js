@@ -63,7 +63,7 @@ class Card extends React.Component {
             .then(
                 function (data) {
                     for (var key in data['articles']) {
-                        article = new Object;
+                        article = new Object();
                         article.author = data['articles'][key]['author'];
                         article.title = data['articles'][key]['title'];
                         article.description = data['articles'][key]['description'];
@@ -81,131 +81,141 @@ class Card extends React.Component {
             )
     }
 
+    openURL(url) {
+        var win = window.open(url, '_blank');
+        win.focus();
+    }
+
     render() {
-        const { api, arr, length } = this.state;
+        const { api, arr } = this.state;
         return (
-            <div class="card-body">
-                {/* <h2>{"API: " + api}</h2> */}
-                <div class="card">
-                    <div class="card-image">
-                        <img src={arr[0] === undefined ? '' : arr[0].urlToImage} style={customStyle} onclick={arr[0] === undefined ? '' : arr[0].url}></img>
-                    </div>
-                    <div class="card-text">
-                        <span class="date">{arr[0] === undefined ? '' : arr[0].publishedAt}</span>
-                        <h2>{arr[0] === undefined ? '' : arr[0].title}</h2>
-                        <p>{arr[0] === undefined ? '' : arr[0].description}</p>
-                    </div>
-                    <div class="card-stats">
-                        <div class="stat">
-                            <div class="value">4<sup>m</sup></div>
-                            <div class="type">read</div>
+            <div>
+                <div class="news-title">
+                    {/* <h2>{"API: " + api}</h2> */}
+                    <h1>News</h1>
+                </div>
+                <div class="card-body">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src={arr[0] === undefined ? '' : arr[0].urlToImage} style={customStyle}></img>
                         </div>
-                        <div class="stat border">
-                            <div class="value">1243</div>
-                            <div class="type">views</div>
+                        <div class="card-text">
+                            <span class="date">{arr[0] === undefined ? '' : arr[0].publishedAt}</span>
+                            <h2>{arr[0] === undefined ? '' : arr[0].title}</h2>
+                            <p>{arr[0] === undefined ? '' : arr[0].description}</p>
                         </div>
-                        <div class="stat">
-                            <div class="value">77</div>
-                            <div class="type">comments</div>
+                        {/* <div class="card-stats">
+                            <div class="stat">
+                                <div class="value">4<sup>m</sup></div>
+                                <div class="type">read</div>
+                            </div>
+                            <div class="stat border">
+                                <div class="value">1243</div>
+                                <div class="type">views</div>
+                            </div>
+                            <div class="stat">
+                                <div class="value">77</div>
+                                <div class="type">comments</div>
+                            </div>
+                        </div> */}
+                    </div >
+                    <div class="card">
+                        <div class="card-image">
+                            <img src={arr[1] === undefined ? '' : arr[1].urlToImage} style={customStyle}></img>
                         </div>
-                    </div>
-                </div >
-                <div class="card">
-                    <div class="card-image">
-                        <img src={arr[1] === undefined ? '' : arr[1].urlToImage} style={customStyle}></img>
-                    </div>
-                    <div class="card-text">
-                        <span class="date">{arr[1] === undefined ? '' : arr[1].publishedAt}</span>
-                        <h2>{arr[1] === undefined ? '' : arr[1].title}</h2>
-                        <p>{arr[1] === undefined ? '' : arr[1].description}</p>
-                    </div>
-                    <div class="card-stats">
-                        <div class="stat">
-                            <div class="value">4<sup>m</sup></div>
-                            <div class="type">read</div>
+                        <div class="card-text">
+                            <span class="date">{arr[1] === undefined ? '' : arr[1].publishedAt}</span>
+                            <h2>{arr[1] === undefined ? '' : arr[1].title}</h2>
+                            <p>{arr[1] === undefined ? '' : arr[1].description}</p>
                         </div>
-                        <div class="stat border">
-                            <div class="value">1243</div>
-                            <div class="type">views</div>
+                        {/* <div class="card-stats">
+                            <div class="stat">
+                                <div class="value">4<sup>m</sup></div>
+                                <div class="type">read</div>
+                            </div>
+                            <div class="stat border">
+                                <div class="value">1243</div>
+                                <div class="type">views</div>
+                            </div>
+                            <div class="stat">
+                                <div class="value">77</div>
+                                <div class="type">comments</div>
+                            </div>
+                        </div> */}
+                    </div >
+                    <div class="card">
+                        <div class="card-image">
+                            <img src={arr[2] === undefined ? '' : arr[2].urlToImage} style={customStyle}></img>
                         </div>
-                        <div class="stat">
-                            <div class="value">77</div>
-                            <div class="type">comments</div>
+                        <div class="card-text">
+                            <span class="date">{arr[2] === undefined ? '' : arr[2].publishedAt}</span>
+                            <h2>{arr[2] === undefined ? '' : arr[2].title}</h2>
+                            <p>{arr[2] === undefined ? '' : arr[2].description}</p>
                         </div>
-                    </div>
-                </div >
-                <div class="card">
-                    <div class="card-image">
-                        <img src={arr[2] === undefined ? '' : arr[2].urlToImage} style={customStyle}></img>
-                    </div>
-                    <div class="card-text">
-                        <span class="date">{arr[2] === undefined ? '' : arr[2].publishedAt}</span>
-                        <h2>{arr[2] === undefined ? '' : arr[2].title}</h2>
-                        <p>{arr[2] === undefined ? '' : arr[2].description}</p>
-                    </div>
-                    <div class="card-stats">
-                        <div class="stat">
-                            <div class="value">4<sup>m</sup></div>
-                            <div class="type">read</div>
+                        {/* <div class="card-stats">
+                            <div class="stat">
+                                <div class="value">4<sup>m</sup></div>
+                                <div class="type">read</div>
+                            </div>
+                            <div class="stat border">
+                                <div class="value">1243</div>
+                                <div class="type">views</div>
+                            </div>
+                            <div class="stat">
+                                <div class="value">77</div>
+                                <div class="type">comments</div>
+                            </div>
+                        </div> */}
+                    </div >
+                    <div class="card">
+                        <div class="card-image">
+                            <img src={arr[3] === undefined ? '' : arr[3].urlToImage} style={customStyle}></img>
                         </div>
-                        <div class="stat border">
-                            <div class="value">1243</div>
-                            <div class="type">views</div>
+                        <div class="card-text">
+                            <span class="date">{arr[3] === undefined ? '' : arr[3].publishedAt}</span>
+                            <h2>{arr[3] === undefined ? '' : arr[3].title}</h2>
+                            <p>{arr[3] === undefined ? '' : arr[3].description}</p>
                         </div>
-                        <div class="stat">
-                            <div class="value">77</div>
-                            <div class="type">comments</div>
+                        {/* <div class="card-stats">
+                            <div class="stat">
+                                <div class="value">4<sup>m</sup></div>
+                                <div class="type">read</div>
+                            </div>
+                            <div class="stat border">
+                                <div class="value">1243</div>
+                                <div class="type">views</div>
+                            </div>
+                            <div class="stat">
+                                <div class="value">77</div>
+                                <div class="type">comments</div>
+                            </div>
+                        </div> */}
+                    </div >
+                    <div class="card">
+                        <div class="card-image">
+                            <img src={arr[4] === undefined ? '' : arr[4].urlToImage} style={customStyle}></img>
                         </div>
-                    </div>
-                </div >
-                <div class="card">
-                    <div class="card-image">
-                        <img src={arr[3] === undefined ? '' : arr[3].urlToImage} style={customStyle}></img>
-                    </div>
-                    <div class="card-text">
-                        <span class="date">{arr[3] === undefined ? '' : arr[3].publishedAt}</span>
-                        <h2>{arr[3] === undefined ? '' : arr[3].title}</h2>
-                        <p>{arr[3] === undefined ? '' : arr[3].description}</p>
-                    </div>
-                    <div class="card-stats">
-                        <div class="stat">
-                            <div class="value">4<sup>m</sup></div>
-                            <div class="type">read</div>
+                        <div class="card-text">
+                            <span class="date">{arr[4] === undefined ? '' : arr[4].publishedAt}</span>
+                            <h2>{arr[4] === undefined ? '' : arr[4].title}</h2>
+                            <p>{arr[4] === undefined ? '' : arr[4].description}</p>
                         </div>
-                        <div class="stat border">
-                            <div class="value">1243</div>
-                            <div class="type">views</div>
-                        </div>
-                        <div class="stat">
-                            <div class="value">77</div>
-                            <div class="type">comments</div>
-                        </div>
-                    </div>
-                </div >
-                <div class="card">
-                    <div class="card-image">
-                        <img src={arr[4] === undefined ? '' : arr[4].urlToImage} style={customStyle}></img>
-                    </div>
-                    <div class="card-text">
-                        <span class="date">{arr[4] === undefined ? '' : arr[4].publishedAt}</span>
-                        <h2>{arr[4] === undefined ? '' : arr[4].title}</h2>
-                        <p>{arr[4] === undefined ? '' : arr[4].description}</p>
-                    </div>
-                    <div class="card-stats">
-                        <div class="stat">
-                            <div class="value">4<sup>m</sup></div>
-                            <div class="type">read</div>
-                        </div>
-                        <div class="stat border">
-                            <div class="value">1243</div>
-                            <div class="type">views</div>
-                        </div>
-                        <div class="stat">
-                            <div class="value">77</div>
-                            <div class="type">comments</div>
-                        </div>
-                    </div>
-                </div >
+                        {/* <div class="card-stats">
+                            <div class="stat">
+                                <div class="value">4<sup>m</sup></div>
+                                <div class="type">read</div>
+                            </div>
+                            <div class="stat border">
+                                <div class="value">1243</div>
+                                <div class="type">views</div>
+                            </div>
+                            <div class="stat">
+                                <div class="value">77</div>
+                                <div class="type">comments</div>
+                            </div>
+                        </div> */}
+                    </div >
+                </div>
             </div>
         )
     }
