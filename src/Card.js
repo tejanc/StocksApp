@@ -89,13 +89,13 @@ class Card extends React.Component {
         const { api, arr } = this.state;
         return (
             <div>
-                <div class="news-title">
+                <div class="recommended-title">
                     {/* <h2>{"API: " + api}</h2> */}
                     <h1>Recommended</h1>
                 </div>
                 <div class="card-body">
                     <div class="card">
-                        <a href={arr[0] === undefined ? '' : arr[0].url}>
+                        <a href={arr[0] === undefined ? '' : arr[0].url} target="_blank">
                             <div class="card-image">
                                 <img src={arr[0] === undefined ? '' : arr[0].urlToImage} style={customStyle}></img>
                             </div>
@@ -121,7 +121,7 @@ class Card extends React.Component {
                         </div> */}
                     </div >
                     <div class="card">
-                        <a href={arr[1] === undefined ? '' : arr[1].url}>
+                        <a href={arr[1] === undefined ? '' : arr[1].url} target="_blank">
                             <div class="card-image">
                                 <img src={arr[1] === undefined ? '' : arr[1].urlToImage} style={customStyle}></img>
                             </div>
@@ -147,7 +147,7 @@ class Card extends React.Component {
                         </div> */}
                     </div >
                     <div class="card">
-                        <a href={arr[2] === undefined ? '' : arr[2].url}>
+                        <a href={arr[2] === undefined ? '' : arr[2].url} target="_blank">
                             <div class="card-image">
                                 <img src={arr[2] === undefined ? '' : arr[2].urlToImage} style={customStyle}></img>
                             </div>
@@ -173,7 +173,7 @@ class Card extends React.Component {
                         </div> */}
                     </div >
                     <div class="card">
-                        <a href={arr[3] === undefined ? '' : arr[3].url}>
+                        <a href={arr[3] === undefined ? '' : arr[3].url} target="_blank">
                             <div class="card-image">
                                 <img src={arr[3] === undefined ? '' : arr[3].urlToImage} style={customStyle}></img>
                             </div>
@@ -199,7 +199,7 @@ class Card extends React.Component {
                         </div> */}
                     </div >
                     <div class="card">
-                        <a href={arr[4] === undefined ? '' : arr[4].url}>
+                        <a href={arr[4] === undefined ? '' : arr[4].url} target="_blank">
                             <div class="card-image">
                                 <img src={arr[4] === undefined ? '' : arr[4].urlToImage} style={customStyle}></img>
                             </div>

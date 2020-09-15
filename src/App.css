@@ -86,16 +86,15 @@
   .topnav input[type=text] {
     border: 1px solid #ccc;
   }
+  .card-body {
+    
+  }
 }
 
-.news-title .h1{
+.recommended-title .h1{
   color: grey;
   font-weight: bold;
   font-size: 32;
-}
-
-.new-title-container {
-
 }
 
 .card-body {
