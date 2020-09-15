@@ -188,7 +188,7 @@ class Stock extends React.Component {
         />
 
         <Plot
-          useResizeHandler
+          useResizeHandler={true}
           data={[
             {
               name: this.state.stockSymbol + ' Open',
@@ -221,6 +221,7 @@ class Stock extends React.Component {
               width: 1080,
               height: 720,
               autosize: true,
+              style: { position: 'relative', width: '100%', height: '100%' },
               xaxis: {
                 autorange: true,
                 rangeselector: {
@@ -266,6 +267,7 @@ class Stock extends React.Component {
         />
 
       </div>
+
     )
   }
 

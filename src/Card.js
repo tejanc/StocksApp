@@ -225,6 +225,66 @@ class Card extends React.Component {
                             </div>
                         </div> */}
                     </div >
+                    <div class="card">
+                        <a href={arr[index] === undefined ? '' : arr[index].url} target="_blank">
+                            <div class="card-image">
+                                <img src={arr[index] === undefined ? '' : arr[index].urlToImage} style={customStyle}></img>
+                            </div>
+                        </a>
+                        <div class="card-text">
+                            <span class="date">{arr[index] === undefined ? '' : arr[index].publishedAt}</span>
+                            <h2>{arr[index] === undefined ? '' : arr[index].title}</h2>
+                            <p>{arr[index] === undefined ? '' : arr[index++].description}</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <a href={arr[index] === undefined ? '' : arr[index].url} target="_blank">
+                            <div class="card-image">
+                                <img src={arr[index] === undefined ? '' : arr[index].urlToImage} style={customStyle}></img>
+                            </div>
+                        </a>
+                        <div class="card-text">
+                            <span class="date">{arr[index] === undefined ? '' : arr[index].publishedAt}</span>
+                            <h2>{arr[index] === undefined ? '' : arr[index].title}</h2>
+                            <p>{arr[index] === undefined ? '' : arr[index++].description}</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <a href={arr[index] === undefined ? '' : arr[index].url} target="_blank">
+                            <div class="card-image">
+                                <img src={arr[index] === undefined ? '' : arr[index].urlToImage} style={customStyle}></img>
+                            </div>
+                        </a>
+                        <div class="card-text">
+                            <span class="date">{arr[index] === undefined ? '' : arr[index].publishedAt}</span>
+                            <h2>{arr[index] === undefined ? '' : arr[index].title}</h2>
+                            <p>{arr[index] === undefined ? '' : arr[index++].description}</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <a href={arr[index] === undefined ? '' : arr[index].url} target="_blank">
+                            <div class="card-image">
+                                <img src={arr[index] === undefined ? '' : arr[index].urlToImage} style={customStyle}></img>
+                            </div>
+                        </a>
+                        <div class="card-text">
+                            <span class="date">{arr[index] === undefined ? '' : arr[index].publishedAt}</span>
+                            <h2>{arr[index] === undefined ? '' : arr[index].title}</h2>
+                            <p>{arr[index] === undefined ? '' : arr[index++].description}</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <a href={arr[index] === undefined ? '' : arr[index].url} target="_blank">
+                            <div class="card-image">
+                                <img src={arr[index] === undefined ? '' : arr[index].urlToImage} style={customStyle}></img>
+                            </div>
+                        </a>
+                        <div class="card-text">
+                            <span class="date">{arr[index] === undefined ? '' : arr[index].publishedAt}</span>
+                            <h2>{arr[index] === undefined ? '' : arr[index].title}</h2>
+                            <p>{arr[index] === undefined ? '' : arr[index++].description}</p>
+                        </div>
+                    </div>
                 </div>
             </div >
         )
