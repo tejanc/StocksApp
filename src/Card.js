@@ -28,16 +28,15 @@ class Card extends React.Component {
     }
 
     componentDidMount() {
-        this.fetchNews('Amazon');
-    }
-
-    componentDidUpdate() {
-        // document.getElementById("card-image").style.background = "url(" + this.state.arr[2].urlToImage;
+        var val = document.getElementsByClassName("AsyncSelect").value;
+        this.fetchNews(val);
     }
 
     fetchNews = async (query) => {
 
         const pointerToThis = this;
+
+        let proxy = 'https://cors-anywhere.herokuapp.com/';
 
         let url = 'http://newsapi.org/v2/everything?' +
             `q=${query}&` +
@@ -52,7 +51,7 @@ class Card extends React.Component {
 
         var articles = [];
 
-        let req = new Request(url);
+        let req = new Request(proxy+url);
         await fetch(req)
             .then(
                 function (response) {

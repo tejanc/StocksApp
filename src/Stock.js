@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Plot from 'react-plotly.js';
+import Card from './Card.js';
 import NavBarInput from './NavBarInput.js';
 import AsyncSelect from 'react-select/async';
 
@@ -62,7 +63,6 @@ class Stock extends React.Component {
     this.setState({
       stockSymbol: selectedStockSymbol.value
     }, () => this.fetchStock(this.state.stockSymbol));
-    
   }
 
   loadOptions = async (inputText, callBack) => {
@@ -151,7 +151,7 @@ class Stock extends React.Component {
     })
     this.fetchStock(this.state.stockSymbol);
   }
-  
+
   render() {
 
     const { stockSymbol, API } = this.state;
