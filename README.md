@@ -41,3 +41,4 @@ Your app is ready to be deployed!
 
 ### Dependencies
 ### 'npm install react-scripts'
+### 'npm install react-select'
