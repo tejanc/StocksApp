@@ -86,6 +86,7 @@ class Card extends React.Component {
     }
 
     render() {
+        var index = 0; // Dynamically set the index at the end of every card 'array' access.
         const { api, arr } = this.state;
         return (
             <div>
@@ -95,15 +96,15 @@ class Card extends React.Component {
                 </div>
                 <div class="card-body">
                     <div class="card">
-                        <a href={arr[0] === undefined ? '' : arr[0].url} target="_blank">
+                        <a href={arr[index] === undefined ? '' : arr[index].url} target="_blank">
                             <div class="card-image">
-                                <img src={arr[0] === undefined ? '' : arr[0].urlToImage} style={customStyle}></img>
+                                <img src={arr[index] === undefined ? '' : arr[index].urlToImage} style={customStyle}></img>
                             </div>
                         </a>
                         <div class="card-text">
-                            <span class="date">{arr[0] === undefined ? '' : arr[0].publishedAt}</span>
-                            <h2>{arr[0] === undefined ? '' : arr[0].title}</h2>
-                            <p>{arr[0] === undefined ? '' : arr[0].description}</p>
+                            <span class="date">{arr[index] === undefined ? '' : arr[index].publishedAt}</span>
+                            <h2>{arr[index] === undefined ? '' : arr[index].title}</h2>
+                            <p>{arr[index] === undefined ? '' : arr[index++].description}</p>
                         </div>
                         {/* <div class="card-stats">
                             <div class="stat">
@@ -121,15 +122,15 @@ class Card extends React.Component {
                         </div> */}
                     </div >
                     <div class="card">
-                        <a href={arr[1] === undefined ? '' : arr[1].url} target="_blank">
+                        <a href={arr[index] === undefined ? '' : arr[index].url} target="_blank">
                             <div class="card-image">
-                                <img src={arr[1] === undefined ? '' : arr[1].urlToImage} style={customStyle}></img>
+                                <img src={arr[index] === undefined ? '' : arr[index].urlToImage} style={customStyle}></img>
                             </div>
                         </a>
                         <div class="card-text">
-                            <span class="date">{arr[1] === undefined ? '' : arr[1].publishedAt}</span>
-                            <h2>{arr[1] === undefined ? '' : arr[1].title}</h2>
-                            <p>{arr[1] === undefined ? '' : arr[1].description}</p>
+                            <span class="date">{arr[index] === undefined ? '' : arr[index].publishedAt}</span>
+                            <h2>{arr[index] === undefined ? '' : arr[index].title}</h2>
+                            <p>{arr[index] === undefined ? '' : arr[index++].description}</p>
                         </div>
                         {/* <div class="card-stats">
                             <div class="stat">
@@ -147,15 +148,15 @@ class Card extends React.Component {
                         </div> */}
                     </div >
                     <div class="card">
-                        <a href={arr[2] === undefined ? '' : arr[2].url} target="_blank">
+                        <a href={arr[index] === undefined ? '' : arr[index].url} target="_blank">
                             <div class="card-image">
-                                <img src={arr[2] === undefined ? '' : arr[2].urlToImage} style={customStyle}></img>
+                                <img src={arr[index] === undefined ? '' : arr[index].urlToImage} style={customStyle}></img>
                             </div>
                         </a>
                         <div class="card-text">
-                            <span class="date">{arr[2] === undefined ? '' : arr[2].publishedAt}</span>
-                            <h2>{arr[2] === undefined ? '' : arr[2].title}</h2>
-                            <p>{arr[2] === undefined ? '' : arr[2].description}</p>
+                            <span class="date">{arr[index] === undefined ? '' : arr[index].publishedAt}</span>
+                            <h2>{arr[index] === undefined ? '' : arr[index].title}</h2>
+                            <p>{arr[index] === undefined ? '' : arr[index++].description}</p>
                         </div>
                         {/* <div class="card-stats">
                             <div class="stat">
@@ -173,15 +174,15 @@ class Card extends React.Component {
                         </div> */}
                     </div >
                     <div class="card">
-                        <a href={arr[3] === undefined ? '' : arr[3].url} target="_blank">
+                        <a href={arr[index] === undefined ? '' : arr[index].url} target="_blank">
                             <div class="card-image">
-                                <img src={arr[3] === undefined ? '' : arr[3].urlToImage} style={customStyle}></img>
+                                <img src={arr[index] === undefined ? '' : arr[index].urlToImage} style={customStyle}></img>
                             </div>
                         </a>
                         <div class="card-text">
-                            <span class="date">{arr[3] === undefined ? '' : arr[3].publishedAt}</span>
-                            <h2>{arr[3] === undefined ? '' : arr[3].title}</h2>
-                            <p>{arr[3] === undefined ? '' : arr[3].description}</p>
+                            <span class="date">{arr[index] === undefined ? '' : arr[index].publishedAt}</span>
+                            <h2>{arr[index] === undefined ? '' : arr[index].title}</h2>
+                            <p>{arr[index] === undefined ? '' : arr[index++].description}</p>
                         </div>
                         {/* <div class="card-stats">
                             <div class="stat">
@@ -199,15 +200,15 @@ class Card extends React.Component {
                         </div> */}
                     </div >
                     <div class="card">
-                        <a href={arr[4] === undefined ? '' : arr[4].url} target="_blank">
+                        <a href={arr[index] === undefined ? '' : arr[index].url} target="_blank">
                             <div class="card-image">
-                                <img src={arr[4] === undefined ? '' : arr[4].urlToImage} style={customStyle}></img>
+                                <img src={arr[index] === undefined ? '' : arr[index].urlToImage} style={customStyle}></img>
                             </div>
                         </a>
                         <div class="card-text">
-                            <span class="date">{arr[4] === undefined ? '' : arr[4].publishedAt}</span>
-                            <h2>{arr[4] === undefined ? '' : arr[4].title}</h2>
-                            <p>{arr[4] === undefined ? '' : arr[4].description}</p>
+                            <span class="date">{arr[index] === undefined ? '' : arr[index].publishedAt}</span>
+                            <h2>{arr[index] === undefined ? '' : arr[index].title}</h2>
+                            <p>{arr[index] === undefined ? '' : arr[index++].description}</p>
                         </div>
                         {/* <div class="card-stats">
                             <div class="stat">
