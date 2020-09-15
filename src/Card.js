@@ -91,7 +91,7 @@ class Card extends React.Component {
             <div>
                 <div class="news-title">
                     {/* <h2>{"API: " + api}</h2> */}
-                    <h1>News</h1>
+                    <h1>Recommended</h1>
                 </div>
                 <div class="card-body">
                     <div class="card">
