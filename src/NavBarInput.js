@@ -24,16 +24,16 @@ class NavBarInput extends Component {
 
     render() {
         return (
-            <div class="topnav">
+            <div className="topnav">
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-                <a class="active" href="#"><i class="fa fa-fw fa-home"></i> Home</a>
-                <a href="#"><i class="fa fa-fw fa-pencil"></i> News</a>
-                <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
-                <a href="#"><i class="fa fa-fw fa-book"></i> About</a>
-                <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
-                <div class="search-container">
+                <a className="active" href="#"><i className="fa fa-fw fa-home"></i> Home</a>
+                <a href="#"><i className="fa fa-fw fa-pencil"></i> News</a>
+                <a href="#"><i className="fa fa-fw fa-envelope"></i> Contact</a>
+                <a href="#"><i className="fa fa-fw fa-book"></i> About</a>
+                <a href="#"><i className="fa fa-fw fa-user"></i> Login</a>
+                <div className="search-container">
                     <input type="text" placeholder='Search..' name={this.props.inputContentName} onKeyUp={this.handleChange}></input>
-                    <button type="submit"><i class="fa fa-search"></i></button>
+                    <button type="submit"><i className="fa fa-search"></i></button>
                 </div>
             </div>
         )

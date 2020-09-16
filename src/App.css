@@ -126,11 +126,10 @@
   margin: 30px;
 }
 
-.card-image {
+.card-image .src{
   grid-area: image;
   /* background: url(); */
-  background: rgb(212, 175, 55);
-  /* metallic gold */
+  /* background: rgb(212, 175, 55); // metallic gold */
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   background-size: cover;
