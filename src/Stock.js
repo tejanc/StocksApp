@@ -266,6 +266,8 @@ class Stock extends React.Component {
           }
         />
 
+        <Card changeLink={this.state.stockSymbol} />
+
       </div>
 
     )

@@ -8,7 +8,6 @@ var article = {
     urlToImage: "",
     publishedAt: "",
     content: "",
-    length: 0
 }
 
 const customStyle = {
@@ -24,7 +23,8 @@ class Card extends React.Component {
         super(props);
         this.state = {
             api: '',
-            arr: []
+            arr: [],
+            query: ''
         }
     }
 
@@ -33,13 +33,21 @@ class Card extends React.Component {
         this.fetchNews(val);
     }
 
+    componentWillReceiveProps() {
+        if (this.props.query !== this.state.query) {
+            if (this.props.changeLink != null) {
+                console.log('fetching news: query: ' + this.props.changeLink);
+                this.fetchNews(this.props.changeLink);
+
+            }
+        }
+    }
+
     fetchNews = async (query) => {
 
         const pointerToThis = this;
 
         let proxy = 'https://cors-anywhere.herokuapp.com/';
-
-        console.log(Date.now());
 
         let url = 'http://newsapi.org/v2/everything?' +
             `q=${query}&` +
@@ -83,11 +91,6 @@ class Card extends React.Component {
             )
     }
 
-    openURL(url) {
-        var win = window.open(url, '_blank');
-        win.focus();
-    }
-
     render() {
         var index = 0; // Dynamically set the index at the end of every card 'array' access.
         const { api, arr } = this.state;
@@ -95,6 +98,7 @@ class Card extends React.Component {
             <div>
                 <div className="recommended-title">
                     {/* <h2>{"API: " + api}</h2> */}
+                    {/* <h1>Query:{this.props.changeLink}</h1> */}
                     <h1>Recommended</h1>
                 </div>
                 <div className="card-body">
