@@ -5,9 +5,13 @@ Stocks app is a simple reactJS web application which gives users the ability to 
 
 ![image](images/StocksJS.png)
 
-From here, users are given relevant news info based upon their search query which is layed out in a card format.
+From here, users are recommended with relevant news based upon their search query which is layed out in a card format. 
 
 ![image](images/StockJSRelevantNews.png)
+
+## Website URL
+
+If you're interested in the website, you can find a working production build [here](http://tdcmarketwatcher.com.s3-website.ca-central-1.amazonaws.com). Currently, the API requests is on a developer key and may time out if too many requests are made. We are working to make this accessible and free for everyone to use permanently.
 
 
 ## Additional Info
