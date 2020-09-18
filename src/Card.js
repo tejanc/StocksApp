@@ -51,7 +51,7 @@ class Card extends React.Component {
 
         let url = 'http://newsapi.org/v2/everything?' +
             `q=${query}&` +
-            `from=${Date.now()}}&` +
+            `from=${Date.now()}&` +
             'sortBy=popularity&' +
             'apiKey=9c0a6f3604e64d3eb2c3d50d20dd0770';
         //http://newsapi.org/v2/everything?q=Amazon&from=2020-09-02&sortBy=popularity&apiKey=9c0a6f3604e64d3eb2c3d50d20dd0770
