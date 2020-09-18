@@ -11,8 +11,7 @@ From here, users are recommended with relevant news based upon their search quer
 
 ## Website URL
 
-If you're interested in the website, you can find a working production build [here](http://tdcmarketwatcher.com.s3-website.ca-central-1.amazonaws.com). Currently, the API requests is on a developer key and may time out if too many requests are made. We are working to make this accessible and free for everyone to use permanently.
-
+If you're interested in the website, you can find a working production build [here](http://tdcmarketwatcher.s3-website.ca-central-1.amazonaws.com). Currently, the API requests is on a developer key and may time out if too many requests are made. We are working to make this accessible and free for everyone to use permanently.
 
 ## Additional Info
 
