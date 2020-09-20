@@ -56,7 +56,6 @@ class Stock extends React.Component {
   }
 
   componentDidMount() {
-    // this.fetchStock(this.state.stockSymbol);
   }
 
   onChange = async (selectedStockSymbol) => {
@@ -64,6 +63,7 @@ class Stock extends React.Component {
       stockSymbol: selectedStockSymbol.value
     }, () => this.fetchStock(this.state.stockSymbol));
   }
+
 
   loadOptions = async (inputText, callBack) => {
     const API_KEY = '2XV1NPZO5YB5S320';

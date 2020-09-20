@@ -38,7 +38,6 @@ class Card extends React.Component {
             if (this.props.changeLink != null) {
                 console.log('fetching news: query: ' + this.props.changeLink);
                 this.fetchNews(this.props.changeLink);
-
             }
         }
     }
@@ -72,7 +71,11 @@ class Card extends React.Component {
             )
             .then(
                 function (data) {
+                    var count = 0;
                     for (var key in data['articles']) {
+                        if (count > 10) {
+                            break;
+                        }
                         article = new Object();
                         article.author = data['articles'][key]['author'];
                         article.title = data['articles'][key]['title'];
@@ -83,6 +86,7 @@ class Card extends React.Component {
                         article.content = data['articles'][key]['content'];
 
                         articles.push(article);
+                        count++;
                     }
                     pointerToThis.setState({
                         arr: articles
