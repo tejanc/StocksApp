@@ -2,9 +2,9 @@
 
 import React from 'react';
 import Plot from 'react-plotly.js';
+import AsyncSelect from 'react-select/async';
 import Card from './Card.js';
 import NavBarInput from './NavBarInput.js';
-import AsyncSelect from 'react-select/async';
 
 const dot = (color = '#ccc') => ({
   alignItems: 'center',
@@ -267,6 +267,10 @@ class Stock extends React.Component {
         />
 
         <Card changeLink={this.state.stockSymbol} />
+
+        <footer>
+          Copyright © 2020 TdcMarketWatcher, All rights reserved.
+        </footer>
 
       </div>
 
