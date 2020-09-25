@@ -40,15 +40,14 @@
 }
 
 /* Style the search box inside the navigation bar */
-
 .topnav input[type=text] {
-  float: center;
-  padding: 6px;
-  border: none;
-  margin-top: 8px;
-  margin-right: 16px;
-  font-size: 17px;
-  border-radius: 12px;
+    float: center;
+    padding: 6px;
+    border: none;
+    margin-top: 8px;
+    margin-right: 16px;
+    font-size: 17px;
+    border-radius: 12px;
 }
 
 .topnav .search-container {
@@ -102,13 +101,12 @@
 }
 
 .card-body {
-  width: 110;
   height: 70vh;
   overflow-x: scroll;
   display: flex;
   align-items: center;
   justify-content: left;
-  background: url('background.jpg') scroll left center;
+  background: url('images/background.jpg') scroll left center;
 }
 
 .card {

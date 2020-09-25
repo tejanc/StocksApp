@@ -1,13 +1,14 @@
 
 ## Welcome To StocksApp 
 
-Stocks app is a simple reactJS web application which gives users the ability to query for historical data on stocks. The page consists of a search tool, plot section and, relevant news section. 
+Stocks app is a simple reactJS web application which gives users the ability to query for historical data on stocks. <br> 
+The page consists of a search tool, plot section and, relevant news section. 
 
-![image](images/StocksJS.png)
+![image](src/images/StocksJS.png)
 
 From here, users are recommended with relevant news based upon their search query which is layed out in a card format. 
 
-![image](images/StockJSRelevantNews.png)
+![image](src/images/StockJSRelevantNews.png)
 
 ## Website URL
 
@@ -45,3 +46,4 @@ Your app is ready to be deployed!
 ### Dependencies
 ### 'npm install react-scripts'
 ### 'npm install react-select'
+### 'npm install react-router-dom'
