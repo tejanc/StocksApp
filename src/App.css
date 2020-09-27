@@ -40,14 +40,15 @@
 }
 
 /* Style the search box inside the navigation bar */
+
 .topnav input[type=text] {
-    float: center;
-    padding: 6px;
-    border: none;
-    margin-top: 8px;
-    margin-right: 16px;
-    font-size: 17px;
-    border-radius: 12px;
+  float: center;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+  border-radius: 12px;
 }
 
 .topnav .search-container {
@@ -68,30 +69,6 @@
 
 .topnav .search-container button:hover {
   background: #ccc;
-}
-
-@media screen and (max-width: 600px) {
-  .topnav .search-container {
-    float: none;
-  }
-  .topnav a, .topnav input[type=text], .topnav .search-container button {
-    float: none;
-    display: block;
-    text-align: left;
-    width: 100%;
-    margin: 0;
-    padding: 14px;
-  }
-  .topnav input[type=text] {
-    border: 1px solid #ccc;
-  }
-  .card-body {
-    float: none;
-    text-align: center;
-    width: 100%;
-    margin: 0;
-    padding: 14px;
-  }
 }
 
 .recommended-title .h1 {
@@ -203,47 +180,149 @@
 
 /* Blog Style Cards */
 
-.news-post-body {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    background-color: #eee;
-    padding: 0 1.5rem;
+.blog-post__body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  background-color: #eee;
+  padding: 0 1.5rem;
 }
 
-.news-post-card {
-    width: 100%;
-    max-width: 98rem;
-    padding: 5rem;
-    background-color: #fff;
-    box-shadow: 0 1.4rem 8rem rgba(0,0,0,.2);
-    display: flex;
-    align-items: center;
-    border-radius: .8rem;
+.blog-post__card {
+  width: 100%;
+  max-width: 90rem;
+  padding: 5rem;
+  background-color: #fff;
+  box-shadow: 0 1.4rem 8rem rgba(0, 0, 0, .2);
+  display: flex;
+  align-items: center;
+  border-radius: .8rem;
 }
 
-.news-post-card-image .src{
-    min-width: 35rem;
-    max-height: 35rem;
-    height: 30rem;
-    transform: translateX(-8rem);
-    position: relative;
+.blog-post__image {
+  min-width: 35rem;
+  max-height: 35rem;
+  height: 30rem;
+  transform: translateX(-8rem);
+  position: relative;
 }
 
-
-.news-post-card-text {
-
+.blog-post__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: .8rem;
 }
 
-.news-post-card-text .date{
-
+.blog-post__image::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to right, rgba(79, 172, 254, .8), rgba(0, 242, 254, .8));
+  box-shadow: .5rem .5rem 3rem 1px rgba(0, 0, 0, .3);
+  border-radius: .8rem;
 }
+
+.blog-post__title {
+  font-size: 2.5rem;
+  margin: 1.5rem 0 2rem;
+  text-transform: uppercase;
+  color: #4facfe;
+}
+
+.blog-post__text {
+  margin-bottom: 3rem;
+  font-size: 1.4rem;
+  color: rgba(0, 0, 0, .7);
+}
+
+.blog-post__date span {
+  display: block;
+  color: rgba(0, 0, 0, .5);
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: .5rem 0;
+}
+
+.blog-post__cta {
+  display: inline-block;
+  padding: 1.5rem 3rem;
+  letter-spacing: 1px;
+  text-transform: uppercace;
+  font-size: 1.2rem;
+  color: #fff;
+  background-image: linear-gradient(to right, #4facf3 0%, #00f2fe 100%);
+  border-radius: .8rem;
+  text-decoration: none;
+}
+
+.blog-post__cta:hover {
+  background-image: linear-gradient(to right, #00f2fe 0%, #4facf3 100%);
+}
+
+/* Footer Section for copyrights */
 
 footer {
-    color: white;
-    background-color: #333;
+  color: white;
+  background-color: #333;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;
+  }
+  .card-body {
+    float: none;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+}
+
+@media screen and (max-width: 1068px) {
+  .blog-post__card {
+    max-width: 80rem;
+  }
+  .blog-post__image {
+    min-width: 30rem;
+    max-width: 30rem;
+  }
+}
+
+@media screen and (max-width: 868px) {
+  .blog-post__card {
+    max-width: 70rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .blog-post__card {
+    padding: 2.5rem;
+    flex: column;
+  }
+  .blog-post__image {
+    min-width: 100%;
+    max-width: 100%;
+    transform: translate(0, -8rem);
+  }
 }
 
 .App {
