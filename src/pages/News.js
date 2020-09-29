@@ -10,19 +10,6 @@ var article = {
     content: "",
 }
 
-const percent100 = "100%";
-const fit = "cover";
-const disp = "block";
-const radius = ".8rem";
-
-const customStyle = {
-    width: percent100,
-    height: percent100,
-    objectFit: fit,
-    display: disp,
-    borderRadius: radius
-}
-
 export default class News extends React.Component {
 
     constructor(props) {
@@ -114,14 +101,48 @@ export default class News extends React.Component {
                             </div>
                         </a>
                         <div className="blog-post__info">
-                            <div class="blog-post__date">
+                            <div className="blog-post__date">
                                 <span className="date">{arr[index] === undefined ? '' : arr[index].publishedAt}</span>
                             </div>
-                            <h1 class="blog-post__title">{arr[index] === undefined ? '' : arr[index].title}</h1>
+                            <h1 className="blog-post__title">{arr[index] === undefined ? '' : arr[index].title}</h1>
                             <p className="blog-post__text">
                                 {arr[index] === undefined ? '' : arr[index].description}
                             </p>
-                            <a class="blog-post__cta" href={arr[index] === undefined ? '' : arr[index++].url} target="_blank">Read More</a>
+                            <a className="blog-post__cta" href={arr[index] === undefined ? '' : arr[index++].url} target="_blank">Read More</a>
+                        </div>
+                    </div >
+                    <div className="blog-post__card">
+                        <a href={arr[index] === undefined ? '' : arr[index].url} target="_blank">
+                            <div className="blog-post__image">
+                                <img src={arr[index] === undefined ? '' : arr[index].urlToImage} ></img>
+                            </div>
+                        </a>
+                        <div className="blog-post__info">
+                            <div className="blog-post__date">
+                                <span className="date">{arr[index] === undefined ? '' : arr[index].publishedAt}</span>
+                            </div>
+                            <h1 className="blog-post__title">{arr[index] === undefined ? '' : arr[index].title}</h1>
+                            <p className="blog-post__text">
+                                {arr[index] === undefined ? '' : arr[index].description}
+                            </p>
+                            <a className="blog-post__cta" href={arr[index] === undefined ? '' : arr[index++].url} target="_blank">Read More</a>
+                        </div>
+                    </div >
+                    <div className="blog-post__card">
+                        <a href={arr[index] === undefined ? '' : arr[index].url} target="_blank">
+                            <div className="blog-post__image">
+                                <img src={arr[index] === undefined ? '' : arr[index].urlToImage} ></img>
+                            </div>
+                        </a>
+                        <div className="blog-post__info">
+                            <div className="blog-post__date">
+                                <span className="date">{arr[index] === undefined ? '' : arr[index].publishedAt}</span>
+                            </div>
+                            <h1 className="blog-post__title">{arr[index] === undefined ? '' : arr[index].title}</h1>
+                            <p className="blog-post__text">
+                                {arr[index] === undefined ? '' : arr[index].description}
+                            </p>
+                            <a className="blog-post__cta" href={arr[index] === undefined ? '' : arr[index++].url} target="_blank">Read More</a>
                         </div>
                     </div >
                 </div>
