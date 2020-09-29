@@ -85,68 +85,39 @@ export default class News extends React.Component {
     render() {
         var index = 0; // Dynamically set the index at the end of every card 'array' access.
         const { api, arr } = this.state;
+
         return (
             <div>
                 <h2> Page Under Development </h2>
                 <div className="recommended-title">
                     {/* {<h2>{"API: " + api}</h2>}
-                    {<h1>Query:{this.props.changeLink}</h1>} */}
+                     {<h1>Query:{this.props.changeLink}</h1>} */}
                     <h1>News</h1>
                 </div>
                 <div className="blog-post__body">
-                    <div className="blog-post__card">
-                        <a href={arr[index] === undefined ? '' : arr[index].url} target="_blank">
-                            <div className="blog-post__image">
-                                <img src={arr[index] === undefined ? '' : arr[index].urlToImage} ></img>
-                            </div>
-                        </a>
-                        <div className="blog-post__info">
-                            <div className="blog-post__date">
-                                <span className="date">{arr[index] === undefined ? '' : arr[index].publishedAt}</span>
-                            </div>
-                            <h1 className="blog-post__title">{arr[index] === undefined ? '' : arr[index].title}</h1>
-                            <p className="blog-post__text">
-                                {arr[index] === undefined ? '' : arr[index].description}
-                            </p>
-                            <a className="blog-post__cta" href={arr[index] === undefined ? '' : arr[index++].url} target="_blank">Read More</a>
-                        </div>
-                    </div >
-                    <div className="blog-post__card">
-                        <a href={arr[index] === undefined ? '' : arr[index].url} target="_blank">
-                            <div className="blog-post__image">
-                                <img src={arr[index] === undefined ? '' : arr[index].urlToImage} ></img>
-                            </div>
-                        </a>
-                        <div className="blog-post__info">
-                            <div className="blog-post__date">
-                                <span className="date">{arr[index] === undefined ? '' : arr[index].publishedAt}</span>
-                            </div>
-                            <h1 className="blog-post__title">{arr[index] === undefined ? '' : arr[index].title}</h1>
-                            <p className="blog-post__text">
-                                {arr[index] === undefined ? '' : arr[index].description}
-                            </p>
-                            <a className="blog-post__cta" href={arr[index] === undefined ? '' : arr[index++].url} target="_blank">Read More</a>
-                        </div>
-                    </div >
-                    <div className="blog-post__card">
-                        <a href={arr[index] === undefined ? '' : arr[index].url} target="_blank">
-                            <div className="blog-post__image">
-                                <img src={arr[index] === undefined ? '' : arr[index].urlToImage} ></img>
-                            </div>
-                        </a>
-                        <div className="blog-post__info">
-                            <div className="blog-post__date">
-                                <span className="date">{arr[index] === undefined ? '' : arr[index].publishedAt}</span>
-                            </div>
-                            <h1 className="blog-post__title">{arr[index] === undefined ? '' : arr[index].title}</h1>
-                            <p className="blog-post__text">
-                                {arr[index] === undefined ? '' : arr[index].description}
-                            </p>
-                            <a className="blog-post__cta" href={arr[index] === undefined ? '' : arr[index++].url} target="_blank">Read More</a>
-                        </div>
-                    </div >
+                    {arr.map((postDetail, index) => {
+                        return (
+                            <div className="blog-post__card">
+                                <a href={arr[index] === undefined ? '' : arr[index].url} target="_blank">
+                                    <div className="blog-post__image">
+                                        <img src={arr[index] === undefined ? '' : arr[index].urlToImage} ></img>
+                                    </div>
+                                </a>
+                                <div className="blog-post__info">
+                                    <div className="blog-post__date">
+                                        <span className="date">{arr[index] === undefined ? '' : arr[index].publishedAt}</span>
+                                    </div>
+                                    <h1 className="blog-post__title">{arr[index] === undefined ? '' : arr[index].title}</h1>
+                                    <p className="blog-post__text">
+                                        {arr[index] === undefined ? '' : arr[index].description}
+                                    </p>
+                                    <a className="blog-post__cta" href={arr[index] === undefined ? '' : arr[index++].url} target="_blank">Read More</a>
+                                </div>
+                            </div >
+                        )
+                    })}
                 </div>
-            </div >
+            </div>
         )
     }
 }
