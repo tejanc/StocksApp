@@ -1,4 +1,5 @@
 import React from 'react';
+import DateUtils from '../utils/DateUtils';
 
 var article = {
     author: "",
@@ -82,7 +83,8 @@ class Card extends React.Component {
                         article.description = data['articles'][key]['description'];
                         article.url = data['articles'][key]['url'];
                         article.urlToImage = data['articles'][key]['urlToImage'];
-                        article.publishedAt = data['articles'][key]['publishedAt'];
+                        var date = new Date(Date.parse(data['articles'][key]['publishedAt']));
+                        article.publishedAt = DateUtils.formatDate(date);
                         article.content = data['articles'][key]['content'];
 
                         articles.push(article);

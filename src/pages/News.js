@@ -1,4 +1,5 @@
 import React from 'react';
+import DateUtils from '../utils/DateUtils';
 
 var article = {
     author: "",
@@ -22,11 +23,10 @@ export default class News extends React.Component {
     }
 
     componentDidMount() {
-        var rand = Math.random() * Math.pow(10, 17);
+        var newsQuery = 'bbc-news';
         this.setState({
-            query: rand
-        }, () => this.fetchNews('Amazon'));
-        this.render();
+            query: newsQuery
+        }, () => this.fetchNews(newsQuery));
     }
 
     fetchNews = async (query) => {
@@ -69,7 +69,8 @@ export default class News extends React.Component {
                         article.description = data['articles'][key]['description'];
                         article.url = data['articles'][key]['url'];
                         article.urlToImage = data['articles'][key]['urlToImage'];
-                        article.publishedAt = data['articles'][key]['publishedAt'];
+                        var date = new Date(Date.parse(data['articles'][key]['publishedAt']));
+                        article.publishedAt = DateUtils.formatDate(date);
                         article.content = data['articles'][key]['content'];
 
                         articles.push(article);
@@ -88,7 +89,6 @@ export default class News extends React.Component {
 
         return (
             <div>
-                <h2> Page Under Development </h2>
                 <div className="recommended-title">
                     {/* {<h2>{"API: " + api}</h2>}
                      {<h1>Query:{this.props.changeLink}</h1>} */}

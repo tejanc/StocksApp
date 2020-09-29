@@ -192,8 +192,8 @@
 }
 
 .blog-post__card {
-  width: 90rem;
-  max-width: 98rem;
+  width: 65rem;
+  max-width: 65rem;
   padding: 5rem;
   background-color: #fff;
   box-shadow: 0 1.4rem 8rem rgba(0, 0, 0, .2);
@@ -204,8 +204,8 @@
 }
 
 .blog-post__image {
-  min-width: 35rem;
-  max-height: 35rem;
+  min-width: 30rem;
+  max-height: 30rem;
   height: 30rem;
   transform: translateX(-8rem);
   position: relative;
@@ -232,7 +232,7 @@
 }
 
 .blog-post__title {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   margin: 1.5rem 0 2rem;
   text-transform: uppercase;
   text-align: left;
@@ -241,7 +241,7 @@
 
 .blog-post__text {
   margin-bottom: 3rem;
-  font-size: 1.4rem;
+  font-size: 1.0rem;
   color: rgba(0, 0, 0, .7);
   text-align: left;
 }
@@ -307,8 +307,8 @@ footer {
     max-width: 44rem;
   }
   .blog-post__image {
-    min-width: 30rem;
-    max-width: 30rem;
+    min-width: 25rem;
+    max-width: 25rem;
   }
 }
 
