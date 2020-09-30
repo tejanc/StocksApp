@@ -1,5 +1,6 @@
 import React from 'react';
 import DateUtils from '../utils/DateUtils';
+import FileUtils from '../utils/FileUtils';
 
 var article = {
     author: "",
@@ -31,7 +32,18 @@ class Card extends React.Component {
 
     componentDidMount() {
         var val = document.getElementsByClassName("AsyncSelect").value;
-        this.fetchNews(val);
+
+        var randomIndex = Math.floor(Math.random() * 100);
+        var newsQuery = FileUtils.getTicker(randomIndex)
+        this.setState({
+            query: newsQuery
+        });
+        
+        if (val !== undefined) {
+            this.fetchNews(val);
+        } else {
+            this.fetchNews(newsQuery);
+        }
     }
 
     componentWillReceiveProps() {
@@ -103,8 +115,8 @@ class Card extends React.Component {
         return (
             <div>
                 <div className="recommended-title">
-                    {/* <h2>{"API: " + api}</h2> */}
-                    {/* <h1>Query:{this.props.changeLink}</h1> */}
+                    {/* <h2>{"API: " + api}</h2>
+                    <h1>Query:{this.props.changeLink}</h1> */}
                     <h1>Recommended</h1>
                 </div>
                 <div className="card-body">

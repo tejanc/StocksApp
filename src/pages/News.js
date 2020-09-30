@@ -1,5 +1,6 @@
 import React from 'react';
 import DateUtils from '../utils/DateUtils';
+import FileUtils from '../utils/FileUtils';
 
 var article = {
     author: "",
@@ -18,15 +19,18 @@ export default class News extends React.Component {
         this.state = {
             api: '',
             query: '',
-            arr: []
+            arr: [],
+            query: ''
         }
     }
 
     componentDidMount() {
-        var newsQuery = 'bbc-news';
+        var randomIndex = Math.floor(Math.random() * 100);
+        var newsQuery = FileUtils.getTicker(randomIndex)
         this.setState({
             query: newsQuery
-        }, () => this.fetchNews(newsQuery));
+        });
+        this.fetchNews(newsQuery);
     }
 
     fetchNews = async (query) => {
@@ -85,13 +89,13 @@ export default class News extends React.Component {
 
     render() {
         var index = 0; // Dynamically set the index at the end of every card 'array' access.
-        const { api, arr } = this.state;
+        const { api, arr, query } = this.state;
 
         return (
             <div>
                 <div className="recommended-title">
                     {/* {<h2>{"API: " + api}</h2>}
-                     {<h1>Query:{this.props.changeLink}</h1>} */}
+                     {<h1>Query:{query}</h1>} */}
                     <h1>News</h1>
                 </div>
                 <div className="blog-post__body">
