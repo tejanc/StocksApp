@@ -88,7 +88,7 @@
   background: url('images/background.jpg') scroll left center;
 }
 
-.card {
+.card-source {
   display: grid;
   grid-template-columns: 300px;
   grid-template-rows: 210px 210px 80px;
@@ -101,6 +101,11 @@
   transition: 0.5s ease;
   cursor: pointer;
   margin: 30px;
+}
+
+.card-source:hover {
+  transform: scale(1.1, 1.1);
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
 }
 
 .card-image .src {
@@ -171,11 +176,6 @@
 
 .card-stats .value sup {
   font-size: 12px;
-}
-
-.card:hover {
-  transform: scale(1.1, 1.1);
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
 }
 
 /* Blog Style Cards */
@@ -277,6 +277,25 @@
 footer {
   color: white;
   background-color: #333;
+}
+
+/* Contact page */
+
+.contact-body {
+  text-align: left;
+  background: radial-gradient(#abb3bd 0.000000001%, white 100%);
+}
+
+/* Contact Email messages */
+
+.success-msg {
+  color: #57A773;
+  padding: 10px 15px;
+}
+
+.err-msg {
+  color: #EE6352;
+  padding: 10px 15px;
 }
 
 @media screen and (max-width: 600px) {

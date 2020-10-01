@@ -156,7 +156,7 @@ class Stock extends React.Component {
     const { stockSymbol, API } = this.state;
 
     return (
-      <div>
+      <div className="stocks-body">
 
         <h1>Stock Symbol: {stockSymbol} </h1>
         {/* <p>Current API: {API}</p> */}

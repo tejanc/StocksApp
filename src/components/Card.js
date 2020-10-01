@@ -122,7 +122,7 @@ class Card extends React.Component {
                 <div className="card-body">
                     {arr.map((postDetail, index) => {
                         return (
-                            <div className="card">
+                            <div className="card-source">
                                 <a href={arr[index] === undefined ? '' : arr[index].url} target="_blank">
                                     <div className="card-image">
                                         <img src={arr[index] === undefined ? '' : arr[index].urlToImage} style={customStyle}></img>
