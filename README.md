@@ -10,6 +10,10 @@ From here, users are recommended with relevant news based upon their search quer
 
 ![image](src/images/StockJSRelevantNews.png)
 
+This website also allows readers to view news articles with a responsive blog post style. Feel free to browse around with the news blog articles. 
+
+![image](src/images/News.png)
+
 ## Website URL
 
 If you're interested in the website, you can find a working production build [here](http://tdcmarketwatcher.s3-website.ca-central-1.amazonaws.com). Currently, the API requests is on a developer key and may time out if too many requests are made. We are working to make this accessible and free for everyone to use permanently.
