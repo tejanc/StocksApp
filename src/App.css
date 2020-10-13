@@ -331,15 +331,14 @@ footer {
 
 @media screen and (max-width: 1068px) {
   .blog-post__card {
+    margin: 2rem;
     max-width: 44rem;
+    flex-direction: column;
   }
   .blog-post__image {
-    min-width: 25rem;
-    max-width: 25rem;
-  }
-  .blog-post__image .src{
-    min-width: 25rem;
-    max-width: 25rem;
+    min-width: 40rem;
+    max-height: 40rem;
+    transform: translateY(-3rem);
   }
 }
 
