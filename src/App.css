@@ -341,12 +341,12 @@ footer {
 @media screen and (max-width: 768px) {
   .blog-post__card {
     margin: 2rem;
-    max-width: 20rem;
+    max-width: 24rem;
     flex-direction: column;
   }
   .blog-post__image {
-    min-width: 100%;
-    max-width: 100%;
+    min-width: 20rem;
+    max-width: 20rem;
     transform: translateY(-8rem);
   }
 }
