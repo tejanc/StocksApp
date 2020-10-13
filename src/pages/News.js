@@ -108,10 +108,10 @@ export default class News extends React.Component {
                                     </div>
                                 </a>
                                 <div className="blog-post__info">
+                                    <h1 className="blog-post__title">{arr[index] === undefined ? '' : arr[index].title}</h1>
                                     <div className="blog-post__date">
                                         <span className="date">{arr[index] === undefined ? '' : arr[index].publishedAt}</span>
                                     </div>
-                                    <h1 className="blog-post__title">{arr[index] === undefined ? '' : arr[index].title}</h1>
                                     <p className="blog-post__text">
                                         {arr[index] === undefined ? '' : arr[index].description}
                                     </p>
