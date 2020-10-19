@@ -15,8 +15,8 @@ export default class Login extends React.Component {
     }
 
     // handle button click of login form
-    handleLogin = (props) => {
-        props.history.push('/dashboard');
+    handleLogin = () => {
+        
     }
 
     render() {
