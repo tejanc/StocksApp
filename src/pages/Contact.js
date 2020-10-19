@@ -21,7 +21,6 @@ export default class Contact extends React.Component {
         }
     }
 
-
     handleChange = (event) => {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -31,7 +30,6 @@ export default class Contact extends React.Component {
             [name]: value
         })
     }
-
 
     handleSubmit = (event) => {
         event.preventDefault();
