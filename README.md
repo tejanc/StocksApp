@@ -4,15 +4,15 @@
 Stocks app is a simple reactJS web application which gives users the ability to query for historical data on stocks. <br> 
 The page consists of a search tool, plot section and, relevant news section. 
 
-![image](src/images/StocksJS.png)
+![image](src/gifs/stocks.gif)
 
 From here, users are recommended with relevant news based upon their search query which is layed out in a card format. 
 
-![image](src/images/StockJSRelevantNews.png)
+![image](src/gifs/relevantnews.gif)
 
 This website also allows readers to view news articles with a responsive blog post style. Feel free to browse around with the news blog articles. 
 
-![image](src/images/News.png)
+![image](src/images/news.gif)
 
 ## Website URL
 
