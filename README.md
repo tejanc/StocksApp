@@ -12,7 +12,7 @@ From here, users are recommended with relevant news based upon their search quer
 
 This website also allows readers to view news articles with a responsive blog post style. Feel free to browse around with the news blog articles. 
 
-![image](src/images/news.gif)
+![image](src/gifs/news.gif)
 
 ## Website URL
 
