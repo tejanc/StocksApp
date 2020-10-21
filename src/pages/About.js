@@ -17,8 +17,8 @@ export default class About extends React.Component {
                 </p>
                 <br></br>
                 <h3>Created by</h3>
-                <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
-                <div class="LI-profile-badge" data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="light" data-vanity="tejan-d-chinnakonda-82a99198"><a class="LI-simple-link" href='https://ca.linkedin.com/in/tejan-d-chinnakonda-82a99198?trk=profile-badge'>Tejan D. Chinnakonda</a></div>
+                <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async></script>
+                <div className="LI-profile-badge" data-version="v1" data-size="large" data-locale="en_US" data-type="vertical" data-theme="light" data-vanity="tejan-d-chinnakonda-82a99198"><a className="LI-simple-link" href='https://ca.linkedin.com/in/tejan-d-chinnakonda-82a99198?trk=profile-badge'>Tejan D. Chinnakonda</a></div>
                 <br></br>
                 <br></br>
             </div>
