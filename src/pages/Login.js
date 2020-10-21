@@ -23,7 +23,9 @@ export default class Login extends React.Component {
         const { username, password, error, setError, loading, setLoading } = this.state;
         return (
             <div>
-                Login<br /><br />
+                <br /><br />
+                <h1>LOGIN</h1>
+                <br /><br />
                 <div>
                     Username<br />
                     <input type="text" {...username} autoComplete="new-password" />
@@ -34,6 +36,8 @@ export default class Login extends React.Component {
                 </div>
                 {error && <><small style={{ color: 'red' }}>{error}</small><br /></>}<br />
                 <input type="button" value={loading ? 'Loading...' : 'Login'} onClick={this.handleLogin} disabled={loading} /><br />
+                <br /><br />
+                <br /><br />
             </div>
         );
     }

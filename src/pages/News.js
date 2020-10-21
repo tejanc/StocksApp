@@ -96,6 +96,7 @@ export default class News extends React.Component {
                 <div className="recommended-title">
                     {/* {<h2>{"API: " + api}</h2>}
                      {<h1>Query:{query}</h1>} */}
+                    <br /><br />
                     <h1>News</h1>
                 </div>
                 <div className="blog-post__body">
